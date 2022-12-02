@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 public class MovieManagerTest {
     MovieManager manager = new MovieManager();
-    MovieManager man = new MovieManager(11);
+    MovieManager man = new MovieManager(10);
 
     @Test
     public void shouldAddMovies() {
@@ -72,7 +72,7 @@ public class MovieManagerTest {
         man.addMovies("Film 11");
 
         String[] actual = man.findLast();
-        String[] expected = {"Film 11", "Film 10", "Film 9", "Film 8", "Film 7", "Film 6", "Film 5", "Film 4", "Film 3", "Film 2", "Film 1"};
+        String[] expected = {"Film 11", "Film 10", "Film 9", "Film 8", "Film 7", "Film 6", "Film 5", "Film 4", "Film 3", "Film 2" };
 
         Assertions.assertArrayEquals(expected, actual);
     }

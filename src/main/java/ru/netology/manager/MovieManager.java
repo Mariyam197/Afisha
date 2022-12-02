@@ -6,7 +6,6 @@ import ru.netology.repository.MovieRepository;
 
 public class MovieManager {
     private MovieRepository repo;
-    private Movie[] movies = new Movie[0];
     private int limit;
 
     public MovieManager(MovieRepository repo) {
@@ -16,10 +15,12 @@ public class MovieManager {
 
 
     public MovieManager(int limit) {
+
         this.limit = limit;
     }
 
     public void addMovies(Movie movie) {
+
         repo.save(movie);
     }
 
@@ -29,16 +30,16 @@ public class MovieManager {
     }
 
     public Movie[] findLast() {
+        Movie[] movies = repo.findAll();
         int resultLength;
         if (movies.length < limit) {
             resultLength = movies.length;
         } else {
             resultLength = limit;
         }
-        Movie[] films = repo.findAll();
-        Movie[] tmp = new Movie[films.length];
+        Movie[] tmp = new Movie[resultLength];
         for (int i = 0; i < tmp.length; i++) {
-            tmp[i] = films[films.length - 1 - i];
+            tmp[i] = movies[movies.length - 1 - i];
         }
         return tmp;
     }

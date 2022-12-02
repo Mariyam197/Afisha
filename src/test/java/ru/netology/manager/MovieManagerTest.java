@@ -15,7 +15,7 @@ public class MovieManagerTest {
 
     MovieRepository repo = Mockito.mock(MovieRepository.class);
     MovieManager manager = new MovieManager(repo);
-    MovieManager man = new MovieManager(11);
+    MovieManager man = new MovieManager(10);
 
     Movie film1 = new Movie(11, "Film 1");
     Movie film2 = new Movie(22, "Film 2");
@@ -85,7 +85,7 @@ public class MovieManagerTest {
         doReturn(movies).when(repo).findAll();
 
         Movie[] actual = manager.findLast();
-        Movie[] expected = { film11, film10, film9, film8, film7, film6, film5, film4, film3, film2, film1};
+        Movie[] expected = { film11, film10, film9, film8, film7, film6, film5, film4, film3, film2};
 
         Assertions.assertArrayEquals(expected, actual);
     }
